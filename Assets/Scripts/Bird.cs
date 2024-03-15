@@ -48,4 +48,14 @@ public class Bird : MonoBehaviour
             SceneManager.LoadScene(levelToLoad);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Invoke(nameof(ReloadLevel), 5);
+    }
+
+    void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
